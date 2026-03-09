@@ -19,6 +19,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
+    - name: Install libssl3              # Step 2.1: Fix for missing libssl needed by .NET
+      run: sudo apt-get update && sudo apt-get install -y libssl3
+
     - name: Install dependencies           # Step 3: Restore NuGet packages
       run: dotnet restore "${{ github.workspace }}/mywebapp/mywebapp.sln"
 
@@ -49,7 +52,8 @@ jobs:
         if-no-files-found: error           # Fail if nothing found
         retention-days: 90                 # Artifact retention in days
     
-    
+
+
   deploy-DEV:
     name: "Deploy To Azure DEV env"
     runs-on: ubuntu-latest
@@ -86,6 +90,7 @@ jobs:
         package: 'mywebappbuildartifacts'
         slot-name: 'dev'   
     
+
   deploy-QA:
     name: "Deploy To Azure QA env"
     runs-on: ubuntu-latest
@@ -121,7 +126,7 @@ jobs:
         app-name: mywebapp-actions # Replace with your app name
         package: 'mywebappbuildartifacts'
         slot-name: 'qa'   
-        
+         
   deploy-PROD:
     name: "Deploy To Azure PROD env"
     runs-on: ubuntu-latest
