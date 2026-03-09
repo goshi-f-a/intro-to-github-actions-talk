@@ -42,7 +42,7 @@ jobs:
     
     # --- FIXED STEP BELOW: Upload artifact using latest version ---
     - name: Upload a Build Artifact        # Step 8: Upload published build as an artifact
-      uses: actions/upload-artifact@v3     # UPDATED to v3 as required by GitHub!
+      uses: actions/upload-artifact@v7.0.0     # UPDATED to v7 as required by GitHub!
       with:
         name: mywebappbuildartifacts       # Artifact name
         path: mywebapp/**                  # Upload all build outputs
