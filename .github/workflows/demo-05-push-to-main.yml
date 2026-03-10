@@ -56,7 +56,7 @@ jobs:
       - build-app
     environment:
       name: 'DEMO05_DEV'
-      url: 'https://mywebapp-actions-dev.azurewebsites.net'
+      url: 'https://mywebapp-actions-goshi-dev.azurewebsites.net'
     
     steps:
     - uses: actions/checkout@v4
@@ -81,7 +81,7 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v3
       with: 
-        app-name: mywebapp-actions # Replace with your app name
+        app-name: mywebapp-actions-goshi # ✅ FIXED
         package: 'mywebappbuildartifacts'
         slot-name: 'dev'   
     
@@ -93,7 +93,7 @@ jobs:
       - build-app
     environment:
       name: 'DEMO05_QA'
-      url: 'https://mywebapp-actions-qa.azurewebsites.net'
+      url: 'https://mywebapp-actions-goshi-qa.azurewebsites.net'
 
     steps:
     - uses: actions/checkout@v4
@@ -118,7 +118,7 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v3
       with: 
-        app-name: mywebapp-actions # Replace with your app name
+        app-name: mywebapp-actions-goshi # ✅ FIXED
         package: 'mywebappbuildartifacts'
         slot-name: 'qa'   
          
@@ -130,7 +130,7 @@ jobs:
       - deploy-QA
     environment:
       name: 'DEMO05_PROD'
-      url: 'https://mywebapp-actions.azurewebsites.net'
+      url: 'https://mywebapp-actions-goshi.azurewebsites.net'
 
     steps:
     - uses: actions/checkout@v4
@@ -155,5 +155,5 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v3
       with: 
-        app-name: mywebapp-actions # Replace with your app name
+        app-name: mywebapp-actions-goshi # ✅ FIXED
         package: 'mywebappbuildartifacts'
