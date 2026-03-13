@@ -80,6 +80,4 @@ jobs:
           #   - LIFX_DEMO_LIGHT_BULB: The ID of the specific light bulb
           #   - LIFX_PAT: Personal Access Token for authentication
           # The color parameter comes from the previous step's output
-          curl -X PUT "https://api.lifx.com/v1/lights/all/state" \
-            -H "Authorization: Bearer YOUR_API_TOKEN" \
-            -d "color=green"
+          curl -X PUT "https://api.lifx.com/v1/lights/${{ secrets.LIFX_DEMO_LIGHT_BULB }}/state" -H "Authorization: Bearer ${{ secrets.LIFX_PAT}}" -d "color=${{ steps.find-random-color.outputs.bulbcolor }}"
