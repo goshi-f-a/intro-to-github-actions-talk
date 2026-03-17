@@ -20,7 +20,7 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   greet:
-    strategy:
+    strategy: # Strategy defines parallel job execution using different configurations (matrix)
       matrix:
         os:
           - ubuntu-latest
