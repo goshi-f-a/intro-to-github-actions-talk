@@ -38,7 +38,7 @@ jobs:
         reporter: dotnet-trx
     
     - name: Publish                        # Step 7: Publish build outputs for deployment
-      run: dotnet publish "${{ github.workspace }}/mywebapp/src/mywebapp.csproj" -c Release -o mywebapp
+      run: dotnet publish "${{ github.workspace }}/mywebapp/src/mywebapp.csproj" -c Release -o mywebapp --no-build
     
     - name: Upload a Build Artifact        # Step 8: Upload published build as an artifact
       uses: actions/upload-artifact@v4
