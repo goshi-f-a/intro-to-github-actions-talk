@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+# Required for dorny/test-reporter to post check results on PRs
+permissions:
+  checks: write
+  pull-requests: write
+  
 # A workflow is made of one or more 'jobs' that can run in parallel or sequence
 jobs:
   # Unique identifier for this job
@@ -53,7 +58,7 @@ jobs:
 
       # Transforms the technical '.trx' file into a beautiful UI report inside the PR
       - name: Test Report
-        uses: dorny/test-reporter@v1.7.0
+        uses: dorny/test-reporter@v1.9.1
         # Condition: Runs even if tests fail, so you can actually see which ones failed
         if: success() || failure()
         with:
