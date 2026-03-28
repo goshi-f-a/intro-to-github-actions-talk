@@ -64,7 +64,7 @@ jobs:
       # Bundles the compiled application into a deployment-ready folder named 'mywebapp'
       - name: Publish
         run: |
-          dotnet publish "${{ github.workspace }}/mywebapp/src/mywebapp.csproj" -c Release -o mywebapp
+          dotnet publish "${{ github.workspace }}/mywebapp/src/mywebapp.csproj" -c Release -o mywebapp --no-build
 
       # Saves the 'published' folder to GitHub's cloud so you can download the build later
       - name: Upload a Build Artifact
